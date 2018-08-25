@@ -44,3 +44,19 @@ Route::post('course', function(Request $request) {
 Route::post('caregiver_relationship', function(Request $request) {
    \App\CaregiverRelationship::create($request->all());
 });
+
+Route::post('course_name', function(Request $request) {
+    \App\CourseName::create($request->all());
+});
+
+Route::post('course_schedule', function(Request $request) {
+    \App\CourseSchedule::create($request->all());
+});
+
+Route::post('enrollment_reason', function(Request $request) {
+    \App\EnrollmentReason::create($request->all());
+});
+
+Route::post('enrollment_status', function(Request $request) {
+    \App\EnrollmentStatus::create($request->all());
+});
