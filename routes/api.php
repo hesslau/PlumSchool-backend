@@ -29,6 +29,10 @@ Route::get('student/{id}/courses', function($id) {
 
 Route::post('user', function(Request $request) {
     $post = $request->all();
-    $post['role'] = Role::where('label', $request->all()['role'])->first()->id;
+    $post['role'] = Role::where('role_name', $request->all()['role_name'])->first()->id;
     \App\User::create($post);
+});
+
+Route::post('role', function(Request $request) {
+    Role::create($request->all());
 });

@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
 
     private function roles() {
         Role::truncate();
-        Role::create(['label' => 'teacher']);
-        Role::create(['label' => 'volunteer']);
+        Role::create(['role_name' => 'teacher']);
+        Role::create(['role_name' => 'volunteer']);
     }
 
 }
