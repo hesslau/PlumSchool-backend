@@ -27,56 +27,84 @@ Route::get('student/{id}/courses', function($id) {
     return response()->json(Student::find($id)->courses);
 });
 
+Route::get('schools', function() {
+    return response()->json(\App\School::all());
+});
+
+Route::get('caregiver_relationships', function() {
+    return response()->json(\App\CaregiverRelationship::all());
+});
+
+Route::get('school/{id}/students', function($id) {
+    return response()->json(\App\School::find($id)->students);
+});
+
+Route::get('school/{id}/courses', function($id) {
+    return response()->json(\App\School::find($id)->courses);
+});
+
 Route::post('user', function(Request $request) {
-    $post = $request->all();
-    $post['role'] = Role::where('role_name', $request->all()['role_name'])->first()->id;
-    \App\User::create($post);
+    $data = json_decode($request->getContent(), true);
+    $data['role_id'] = Role::where('name', $data['role_name'])->first()->id;
+    \App\User::create($data);
 });
 
 Route::post('role', function(Request $request) {
-    Role::create($request->all());
+    $data = json_decode($request->getContent(), true);
+    Role::create($data);
 });
 
 Route::post('course', function(Request $request) {
-    \App\Course::create($request->all());
+    $data = json_decode($request->getContent(), true);
+    \App\Course::create($data);
 });
 
 Route::post('caregiver_relationship', function(Request $request) {
-   \App\CaregiverRelationship::create($request->all());
+    $data = json_decode($request->getContent(), true);
+   \App\CaregiverRelationship::create($data);
 });
 
 Route::post('course_name', function(Request $request) {
-    \App\CourseName::create($request->all());
+    $data = json_decode($request->getContent(), true);
+    \App\CourseName::create($data);
 });
 
 Route::post('course_schedule', function(Request $request) {
-    \App\CourseSchedule::create($request->all());
+    $data = json_decode($request->getContent(), true);
+    \App\CourseSchedule::create($data);
 });
 
 Route::post('enrollment_reason', function(Request $request) {
-    \App\EnrollmentReason::create($request->all());
+    $data = json_decode($request->getContent(), true);
+    \App\EnrollmentReason::create($data);
 });
 
 Route::post('enrollment_status', function(Request $request) {
-    \App\EnrollmentStatus::create($request->all());
+    $data = json_decode($request->getContent(), true);
+    \App\EnrollmentStatus::create($data);
 });
 
 Route::post('enrollment', function(Request $request){
-    \App\Enrollment::create($request->all());
+    $data = json_decode($request->getContent(), true);
+    \App\Enrollment::create($data);
 });
 
 Route::post('attendance_code', function(Request $request){
-    \App\AttendanceCode::create($request->all());
+    $data = json_decode($request->getContent(), true);
+    \App\AttendanceCode::create($data);
 });
 
 Route::post('attendance', function(Request $request){
-    \App\Attendance::create($request->all());
+    $data = json_decode($request->getContent(), true);
+    \App\Attendance::create($data);
 });
 
 Route::post('student', function(Request $request){
-    Student::create($request->all());
+    $data = json_decode($request->getContent(), true);
+    Student::create($data);
 });
 
 Route::post('school', function(Request $request){
-    \App\School::create($request->all());
+    $data = json_decode($request->getContent(), true);
+    \App\School::create($data);
 });

@@ -19,8 +19,8 @@ class AddTableCourses extends Migration
             $table->integer('teacher_id');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
-            $table->string('course_name');
-            $table->string('course_schedule');
+            $table->integer('course_name_id');
+            $table->integer('course_schedule_id');
             $table->integer('grade');
             // ...
             $table->timestamps();

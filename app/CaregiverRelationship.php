@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class CaregiverRelationship extends Model
 {
-    //
+    protected $fillable=['name'];
 }

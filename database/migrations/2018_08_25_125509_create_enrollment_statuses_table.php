@@ -15,7 +15,7 @@ class CreateEnrollmentStatusesTable extends Migration
     {
         Schema::create('enrollment_statuses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('status');
+            $table->string('name');
             $table->timestamps();
         });
     }
