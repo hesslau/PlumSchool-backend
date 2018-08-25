@@ -64,3 +64,11 @@ Route::post('enrollment_status', function(Request $request) {
 Route::post('enrollment', function(Request $request){
     \App\Enrollment::create($request->all());
 });
+
+Route::post('attendance_code', function(Request $request){
+    \App\AttendanceCode::create($request->all());
+});
+
+Route::post('attendance', function(Request $request){
+    \App\Attendance::create($request->all());
+});
