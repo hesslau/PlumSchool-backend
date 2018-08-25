@@ -60,3 +60,7 @@ Route::post('enrollment_reason', function(Request $request) {
 Route::post('enrollment_status', function(Request $request) {
     \App\EnrollmentStatus::create($request->all());
 });
+
+Route::post('enrollment', function(Request $request){
+    \App\Enrollment::create($request->all());
+});

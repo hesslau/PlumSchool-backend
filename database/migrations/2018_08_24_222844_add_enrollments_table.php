@@ -17,6 +17,8 @@ class AddEnrollmentsTable extends Migration
             $table->increments('id');
             $table->integer('student_id');
             $table->integer('course_id');
+            $table->date('enrollment_date');
+            $table->integer('enrollment_status_id');
             // ...
             $table->timestamps();
         });
