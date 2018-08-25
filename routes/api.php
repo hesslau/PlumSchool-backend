@@ -36,3 +36,11 @@ Route::post('user', function(Request $request) {
 Route::post('role', function(Request $request) {
     Role::create($request->all());
 });
+
+Route::post('course', function(Request $request) {
+    \App\Course::create($request->all());
+});
+
+Route::post('caregiver_relationship', function(Request $request) {
+   \App\CaregiverRelationship::create($request->all());
+});
