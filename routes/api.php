@@ -43,6 +43,14 @@ Route::get('school/{id}/courses', function($id) {
     return response()->json(\App\School::find($id)->courses);
 });
 
+Route::get('student/{id}/attendances', function($id) {
+    return response()->json(\App\Student::find($id)->attendances);
+});
+
+Route::get('student/{id}/attendance_rate', function($id) {
+    return response()->json(\App\Student::find($id)->attendanceRate());
+});
+
 Route::post('user', function(Request $request) {
     $data = json_decode($request->getContent(), true);
     $data['role_id'] = Role::where('name', $data['role_name'])->first()->id;
