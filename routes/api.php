@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Student;
+use App\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,14 +15,20 @@ use App\Student;
 |
 */
 
-    Route::middleware('auth:api')->get('/user', function (Request $request) {
-        return $request->user();
-    });
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
-    Route::get('students', function() {
-        return response()->json(Student::all());
-    });
+Route::get('students', function() {
+    return response()->json(Student::all());
+});
 
-    Route::get('student/{id}/courses', function($id) {
-        return response()->json(Student::find($id)->courses);
-    });
+Route::get('student/{id}/courses', function($id) {
+    return response()->json(Student::find($id)->courses);
+});
+
+Route::post('user', function(Request $request) {
+    $post = $request->all();
+    $post['role'] = Role::where('label', $request->all()['role'])->first()->id;
+    \App\User::create($post);
+});
