@@ -15,7 +15,13 @@ class AddTableCourses extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->integer('school_id');
+            $table->integer('teacher_id');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
+            $table->string('course_name');
+            $table->string('course_schedule');
+            $table->integer('grade');
             // ...
             $table->timestamps();
         });
