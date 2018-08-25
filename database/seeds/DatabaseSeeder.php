@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,5 +15,13 @@ class DatabaseSeeder extends Seeder
         $this->call(StudentSeeder::class);
         $this->call(CoursesSeeder::class);
         $this->call(EnrollmentSeeder::class);
+        $this->roles();
     }
+
+    private function roles() {
+        Role::truncate();
+        Role::create(['label' => 'teacher']);
+        Role::create(['label' => 'volunteer']);
+    }
+
 }
