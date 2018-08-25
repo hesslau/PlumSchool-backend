@@ -72,3 +72,7 @@ Route::post('attendance_code', function(Request $request){
 Route::post('attendance', function(Request $request){
     \App\Attendance::create($request->all());
 });
+
+Route::post('student', function(Request $request){
+    Student::create($request->all());
+});
