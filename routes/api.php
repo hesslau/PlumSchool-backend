@@ -76,3 +76,7 @@ Route::post('attendance', function(Request $request){
 Route::post('student', function(Request $request){
     Student::create($request->all());
 });
+
+Route::post('school', function(Request $request){
+    \App\School::create($request->all());
+});
