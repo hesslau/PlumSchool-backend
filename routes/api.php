@@ -52,7 +52,7 @@ Route::get('student/{id}/attendance_rate', function($id) {
 });
 
 // GET LABELS FOR IDS
-Route::get('attendance_code', function() {
+Route::get('attendance_codes', function() {
     return response()->json(\App\AttendanceCode::all());
 });
 
