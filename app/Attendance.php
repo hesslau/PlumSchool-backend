@@ -10,12 +10,12 @@ class Attendance extends Model
 
     public static function getRate($collection) {
 
-        $attendances = $collection->map(function($e) { return $e->attendance; });
+        $attendances = $collection->flatMap(function($e) { return $e->attendances; });
         $total_attendances = $attendances->count();
         $codes = $attendances->groupBy('attendance_code_id');
         $aggregation = [];
 
-        dd($attendances);
+        //dd($attendances);
 
         foreach($codes as $code => $attendance_per_code) {
             $aggregation[$code] = count($attendance_per_code) / $total_attendances;
