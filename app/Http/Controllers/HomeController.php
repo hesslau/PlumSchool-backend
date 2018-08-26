@@ -27,7 +27,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $courses = Course::all();
+        $students = Student::all();
+        return view('home', compact('students','courses'));
     }
 
     public function courseAttendance($id) {
