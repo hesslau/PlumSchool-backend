@@ -51,6 +51,11 @@ Route::get('student/{id}/attendance_rate', function($id) {
     return response()->json(\App\Student::find($id)->attendanceRate());
 });
 
+// GET LABELS FOR IDS
+Route::get('attendance_code', function() {
+    return response()->json(\App\AttendanceCode::all());
+});
+
 Route::get('enrollment_reasons', function() {
     return response()->json(\App\EnrollmentReason::all());
 });
