@@ -29,6 +29,6 @@ class Student extends Model
             $aggregation[$code] = count($attendance_per_code) / $total_attendances;
         }
 
-        dd($aggregation);
+        return $aggregation;
     }
 }
