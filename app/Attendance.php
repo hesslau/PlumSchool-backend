@@ -23,4 +23,19 @@ class Attendance extends Model
 
         return $aggregation;
     }
+
+
+    public static function calculateRates($listOfAttendances) {
+        $total_attendances = $listOfAttendances->count();
+        $codes = $listOfAttendances->groupBy('attendance_code_id');
+        $aggregation = [];
+
+        //dd($attendances);
+
+        foreach($codes as $code => $attendance_per_code) {
+            $aggregation[$code] = count($attendance_per_code) / $total_attendances;
+        }
+
+        return $aggregation;
+    }
 }

@@ -164,6 +164,7 @@ return [
          * OAuth
          */
         Laravel\Passport\PassportServiceProvider::class,
+        \Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class
 
     ],
 
